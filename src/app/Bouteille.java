@@ -38,38 +38,32 @@ public class Bouteille {
         return enverre;
     }
 
-    public String toString() {
+   
+public String toString() {
 
-        String materiel;
-        String videOuPlein;
+    String prixFormate = String.format("%.2f", prix);
 
-        if (enverre == true) {
-            materiel = "verre";
-        }
+    String materiel;
+    String etat;
 
-        else {
-            materiel = "plastique";
-        }
-
-        if(remplissage == 100.0){
-            videOuPlein = "pleine";
-        }
-
-        else if(remplissage > 0 && remplissage < 100.0){
-            videOuPlein = "entamée";
-        }
-
-        else{
-
-            videOuPlein = "vide";
-        }
-
-        
-
-        String afficher = "Bouteille" + nom + "de" + contenance + "en" + enverre + "à" + prix + "-" + remplissage;
-
-return afficher;
-
+    if (enverre) {
+        materiel = "verre";
+    } else {
+        materiel = "plastique";
     }
 
+    if (remplissage == 100.0) {
+        etat = "pleine";
+    } else if (remplissage > 0 && remplissage < 100.0) {
+        etat = "entamée";
+    } else {
+        etat = "vide";
+    }
+
+    return "Bouteille '" + nom + "' de " + contenance + "L en " + materiel +
+           " à " + prixFormate + " Frs - " + etat;
 }
+
+
+}
+
